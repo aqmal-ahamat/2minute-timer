@@ -11,14 +11,14 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
 </head>
-<body >
+<body id="body">
 
     <div id="one" class="full-background"></div>
     <div id="two" class="empty-background"></div>
     
     <div id="main">
         <div id="display">
-            <p id="timer"><span>00</span>:<span>00</span></p>
+            <p id="timer"><span id="minute">02</span>:<span id="second">00</span></p>
         </div>
         <div id="beforeButtons">
         <div id="buttons">
@@ -34,6 +34,7 @@
 
 
     <audio src="audios\tap.mp3" id="tap"></audio>
+    <audio id="alarm" src="audios\alarm.mp3"></audio>
     <script src="script.js"></script>
 </body>
 </html>
