@@ -1,5 +1,10 @@
 :root{
-    --height:10vh ;
+    --height:100vh ;
+    --dark-blue:#27005d;
+    --purple:#9400ff;
+    --blue:#1679AB;
+    --green:#41b06e;
+    --pink:#d63484;
 }
 
 *{
@@ -12,8 +17,13 @@ body{
 
 .full-background{
 
-    animation: background 10s ;
+    animation: background 4s ;
     animation-timing-function: linear;
+}
+.empty-background{
+    animation: Reversebackground 4s ;
+    animation-timing-function: linear;
+
 }
 
 @keyframes background{
@@ -25,13 +35,104 @@ body{
     }
 
 }
+@keyframes Reversebackground{
+    0%{
+       height: var(--height);
+    }
+    100%{
+       height: 0vh;
+    }
+
+}
+
 #one{
-    background-color: #41b06e;
+    background-color:var(--purple);
     width: 100vw;
     
 }
 #two{
-    background-color: black;
+    background-color:var(--dark-blue) ;
     width: 100vw;
-    height: 50vh;
+    
+}
+#main{
+    position: fixed;
+    left: 50%;
+    top: 50% ;
+    width:100%;
+    height: 100%;
+    transform: translate(-50%,-50%);
+   
+    display: grid;
+    grid-template-rows: 60%  40%;
+    justify-content: center;
+    align-items: center;
+    
+    
+    
+}
+
+#timer{
+    text-align: center;
+    font-weight: 700;
+    font-size: 110px;
+    margin: 0;
+    color: white;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+
+}
+#buttons{
+    display: flex;
+    transform: translate(12.5%,0%);
+    width: 80%;
+    
+    
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    opacity: 1;
+    padding-top: 25px;
+    border-radius: 30px;
+    box-shadow: 0 4px 18px 0 rgba(0, 0, 0, 0.2), 0 6px 210px 0 rgba(0, 0, 0, 0.19);
+    
+
+    
+    
+    
+}
+
+
+#buttons button{
+    width: 60%;
+    height: 40px;
+    margin-bottom: 25px;
+    font-size: 20px;
+    font-weight: 500;
+    border-radius: 25px;
+    border: 0;
+    
+    
+    
+    box-shadow: 0 4px 18px 0 rgba(0, 0, 0, 0.2), 0 6px 210px 0 rgba(0, 0, 0, 0.19);
+    
+    
+
+}
+#start{
+    background-color: var(--dark-blue);
+    color:white;
+}
+#start:active,#pause:active,#reset:active{
+    background-color: var(--blue);
+    
+    
+}
+#pause{
+    background-color:var(--dark-blue);
+    color: white;
+}
+#reset{
+    background-color:var(--dark-blue) ;
+    color: white;
 }

@@ -1,0 +1,16 @@
+{
+    "name": "Reset",
+    "short_name": "Reset",
+    "description": "A simple web application. which is a countdown timer",
+    "start_url": "index.html",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#27005d",
+    "icons": [
+      {
+        "src": "images/logo.png",
+        "sizes": "500x500",
+        "type": "image/png"
+      }
+    ]
+  }

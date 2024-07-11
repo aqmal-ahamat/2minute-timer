@@ -1,5 +1,9 @@
+const tapSound = document.getElementById("tap")
+tapSound.play();
 let number = 0;
 let increment =  1/120*100;
+
+let timer = 0;
 
 
 setInterval(BGanimation,1000);
@@ -7,9 +11,13 @@ setInterval(BGanimation,1000);
 
 
 function BGanimation (){
-    number+=increment;
-    console.log(number)
+    if (number<100){
 
+        number+=increment;
+        console.log(number)
+
+    }
+    
 
 }
 
