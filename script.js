@@ -6,18 +6,24 @@ const body = document.getElementById("body");
 const start = document.getElementById("start");
 const pause = document.getElementById("pause");
 const reset = document.getElementById("reset");
+let root = document.querySelector(":root")
 
 
 
 
 
 
-let number = 12;
+let number = 120;
+const numberStart = number;
 let decrement =  1;
 
 let minutes;
 let seconds;
 let intervalID;
+
+let progress = 0
+let progressIncrement = 1/number*100
+let progressEnd = 100
 
 body.onclick = function(){
     tapSound.play();
@@ -34,7 +40,7 @@ function timer(){
 
 function timerfunc (){
     if (number>=0){
-        console.log(number);
+        
         minutes = Math.trunc(number/60);
         if(minutes<10){
             timerMins.textContent = `0${minutes}`;
@@ -45,13 +51,21 @@ function timerfunc (){
         
 
         seconds = number-(minutes*60);
-        console.log(seconds);
+        
         if (seconds<10){
-            console.log("working")
+            
             timerSecs.textContent =`0${seconds}`;
         }else{
             timerSecs.textContent = seconds;
         }
+        if (number!=numberStart){
+            
+            progress+=progressIncrement;
+        }
+        
+        console.log(`progress increment : ${progress}`)
+        root.style.setProperty("--height",`${progress}vh`);
+        root.style.setProperty("--radius",`${(100-progress/100*100)}vw`)
         number-=decrement;
         
 
@@ -65,7 +79,7 @@ function timerfunc (){
 function pausefunc(){
     clearInterval(intervalID);
     if (number>=0){
-        console.log(number);
+        
         minutes = Math.trunc(number/60);
         if(minutes<10){
             timerMins.textContent = `0${minutes}`;
@@ -76,9 +90,9 @@ function pausefunc(){
         
 
         seconds = number-(minutes*60);
-        console.log(seconds);
+        
         if (seconds<10){
-            console.log("working")
+            
             timerSecs.textContent =`0${seconds}`;
         }else{
             timerSecs.textContent = seconds;
@@ -90,6 +104,8 @@ function resetfunc(){
     clearInterval(intervalID);
     number = 120;
     alarm.pause();
+    progress = 0;
+    root.style.setProperty("--height",`${progress}vh`);
     if (number>=0){
         minutes = Math.trunc(number/60);
         if(minutes<10){
@@ -101,9 +117,9 @@ function resetfunc(){
         
 
         seconds = number-(minutes*60);
-        console.log(seconds);
+        
         if (seconds<10){
-            console.log("working")
+            
             timerSecs.textContent =`0${seconds}`;
         }else{
             timerSecs.textContent = seconds;
