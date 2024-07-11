@@ -28,14 +28,19 @@ let progressEnd = 100
 body.onclick = function(){
     tapSound.play();
 }
-
+startClick = false;
 start.onclick = timer;
 pause.onclick = pausefunc;
 reset.onclick = resetfunc;
 
 
 function timer(){
-    intervalID = setInterval(timerfunc,1000);
+    if (!startClick){
+        intervalID = setInterval(timerfunc,1000);
+        startClick=true;
+    }
+    
+
 }
 
 function timerfunc (){
