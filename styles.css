@@ -1,3 +1,37 @@
+:root{
+    --height:10vh ;
+}
+
 *{
     font-family: "nunito";
+}
+body{
+    margin: 0;
+    padding: 0;
+}
+
+.full-background{
+
+    animation: background 10s ;
+    animation-timing-function: linear;
+}
+
+@keyframes background{
+    0%{
+       height: 0vh;
+    }
+    100%{
+       height: var(--height);
+    }
+
+}
+#one{
+    background-color: #41b06e;
+    width: 100vw;
+    
+}
+#two{
+    background-color: black;
+    width: 100vw;
+    height: 50vh;
 }
