@@ -13,7 +13,7 @@ let root = document.querySelector(":root")
 
 
 
-let number = 10;
+let number = 120;
 const numberStart = number;
 let decrement =  1;
 
