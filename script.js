@@ -30,7 +30,9 @@ body.onclick = function(){
 }
 startClick = false;
 start.onclick = timer;
+pauseClick = false;
 pause.onclick = pausefunc;
+resetClick = false;
 reset.onclick = resetfunc;
 
 
@@ -82,8 +84,9 @@ function timerfunc (){
 }
 
 function pausefunc(){
-    clearInterval(intervalID);
-    if (number>=0){
+    if (!pauseClick){
+        clearInterval(intervalID);
+        if (number>=0){
         
         minutes = Math.trunc(number/60);
         if(minutes<10){
@@ -103,33 +106,44 @@ function pausefunc(){
             timerSecs.textContent = seconds;
         }
 }
+        pauseClick=true;
+    }
+    
 }
 
 function resetfunc(){
-    clearInterval(intervalID);
-    number = 120;
-    alarm.pause();
-    progress = 0;
-    root.style.setProperty("--height",`${progress}vh`);
-    if (number>=0){
-        minutes = Math.trunc(number/60);
-        if(minutes<10){
-            timerMins.textContent = `0${minutes}`;
-        }
-        else{
-            timerMins.textContent = `${minutes}`;
-        }
-        
-
-        seconds = number-(minutes*60);
-        
-        if (seconds<10){
+    if (!resetClick){
+        clearInterval(intervalID);
+        number = 120;
+        alarm.pause();
+        progress = 0;
+        root.style.setProperty("--height",`${progress}vh`);
+        if (number>=0){
+            minutes = Math.trunc(number/60);
+            if(minutes<10){
+                timerMins.textContent = `0${minutes}`;
+            }
+            else{
+                timerMins.textContent = `${minutes}`;
+            }
             
-            timerSecs.textContent =`0${seconds}`;
-        }else{
-            timerSecs.textContent = seconds;
+
+            seconds = number-(minutes*60);
+            
+            if (seconds<10){
+                
+                timerSecs.textContent =`0${seconds}`;
+            }else{
+                timerSecs.textContent = seconds;
+            }
+
+    }
+
+            
+    resetClick=true;
         }
 
-}
 
+    
+    
 }
