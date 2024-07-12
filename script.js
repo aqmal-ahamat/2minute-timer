@@ -76,6 +76,7 @@ function timerfunc (){
         console.log(`progress increment : ${progress}`)
         root.style.setProperty("--height",`${progress}vh`);
         root.style.setProperty("--radius",`${(100-progress/100*100)}vh`)
+        root.style.setProperty("--reverse-height",`${100-progress}vh`)
         number-=decrement;
         
 
@@ -125,6 +126,8 @@ function resetfunc(){
         alarm.pause();
         progress = 0;
         root.style.setProperty("--height",`${progress}vh`);
+        root.style.setProperty("--radius",`${(100-progress/100*100)}vh`)
+        root.style.setProperty("--reverse-height",`${100-progress}vh`)
         if (number>=0){
             minutes = Math.trunc(number/60);
             if(minutes<10){

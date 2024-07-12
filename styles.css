@@ -1,5 +1,6 @@
 :root{
     --height:0vh ;
+    --reverse-height:100vh;
     --radius:100vh;
     --dark-blue:#27005d;
     --purple:#9400ff;
@@ -37,18 +38,21 @@ body{
 
 
 #one{
-    background-color:var(--purple);
+    
+    background-color:var(--dark-blue) ;
     width: 100vw;
-    height: var(--height);
+    height: var(--reverse-height);
+    
     z-index: 100;
     
-    border-bottom-left-radius:var(--radius) ;
-    border-bottom-right-radius:var(--radius) ;
     
-}
+    
+}/*right when everything is working*/
 #two{
-    background-color:var(--dark-blue) ;
-    height: calc(100-var(--height));
+    background-color:var(--purple);
+    height: var(--height);
+    border-top-left-radius:var(--radius) ;
+    border-top-right-radius:var(--radius) ;
     width: 100vw;
     
 }
