@@ -39,7 +39,10 @@ reset.onclick = resetfunc;
 function timer(){
     if (!startClick){
         intervalID = setInterval(timerfunc,1000);
+        start.textContent = "start";
         startClick=true;
+        pauseClick=false;
+        resetfunc=false;
     }
     
 
@@ -72,7 +75,7 @@ function timerfunc (){
         
         console.log(`progress increment : ${progress}`)
         root.style.setProperty("--height",`${progress}vh`);
-        root.style.setProperty("--radius",`${(100-progress/100*100)}vw`)
+        root.style.setProperty("--radius",`${(100-progress/100*100)}vh`)
         number-=decrement;
         
 
@@ -85,6 +88,7 @@ function timerfunc (){
 
 function pausefunc(){
     if (!pauseClick){
+        start.textContent="resume";
         clearInterval(intervalID);
         if (number>=0){
         
@@ -107,14 +111,17 @@ function pausefunc(){
         }
 }
         pauseClick=true;
+        startClick=false;
+        resetfunc=false;
     }
     
 }
 
 function resetfunc(){
     if (!resetClick){
+        start.textContent = "start";
         clearInterval(intervalID);
-        number = 120;
+        number = numberStart;
         alarm.pause();
         progress = 0;
         root.style.setProperty("--height",`${progress}vh`);
