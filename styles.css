@@ -50,6 +50,8 @@ body{
 }/*right when everything is working*/
 #two{
     background-color:var(--purple);
+    box-shadow: 0 4px 18px 0 rgba(0, 0, 0, 0.2), 0 6px 210px 0 rgba(0, 0, 0, 0.19);
+
     height: var(--height);
     border-top-left-radius:var(--radius) ;
     border-top-right-radius:var(--radius) ;
