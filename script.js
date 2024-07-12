@@ -140,7 +140,9 @@ function resetfunc(){
     }
 
             
-    resetClick=true;
+    
+    startClick = false;
+    pauseClick = false;
         }
 
 
