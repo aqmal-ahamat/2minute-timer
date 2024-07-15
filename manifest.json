@@ -4,7 +4,7 @@
     "description": "A simple web application. which is a countdown timer",
     "start_url": "index.html",
     "display": "standalone",
-    "background_color": "#ffffff",
+    "background_color": "#27005d",
     "theme_color": "#27005d",
     "icons": [
       {
